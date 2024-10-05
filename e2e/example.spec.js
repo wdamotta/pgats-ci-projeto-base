@@ -2,7 +2,7 @@
 import { test, expect } from '@playwright/test';
 
 test('user should be able to ride', async ({ page }) => {
-  await page.goto('https://stryker-mutator.io/robo-coasters-example/');
+  await page.goto('https://pgats-ci-example.netlify.app');
   await page.getByRole('link', { name: 'Choose Roba Swings' }).click();
   await page.getByLabel('Amount of people').selectOption('2');
   await page.getByRole('button', { name: 'Next' }).click();
@@ -12,7 +12,7 @@ test('user should be able to ride', async ({ page }) => {
 });
 
 test('user above height should not be allowed', async ({ page }) => {
-  await page.goto('https://stryker-mutator.io/robo-coasters-example/#');
+  await page.goto('https://pgats-ci-example.netlify.app');
   await page.getByRole('link', { name: 'Choose Robo Coaster Of Doom' }).click();
   await page.getByLabel('Amount of people').selectOption('2');
   await page.getByLabel('Amount of people').selectOption('1');
@@ -33,7 +33,7 @@ test('user above height should not be allowed', async ({ page }) => {
 });
 
 test('user with minimum height should be allowed', async ({ page }) => {
-  await page.goto('https://stryker-mutator.io/robo-coasters-example/#');
+  await page.goto('https://pgats-ci-example.netlify.app');
   await page.getByRole('link', { name: 'Choose Robo Coaster Of Doom' }).click();
   await page.getByLabel('Amount of people').selectOption('2');
   await page.getByLabel('Amount of people').selectOption('1');
