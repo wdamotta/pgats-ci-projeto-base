@@ -31,4 +31,6 @@
     ```
 12. Execute a aplicação com `yarn start`
 13. Acesse a aplicação publicada [neste link](https://pgats-ci-example.netlify.app)
-# pgats-ci-projeto-base
+
+---
+💜⚡️
