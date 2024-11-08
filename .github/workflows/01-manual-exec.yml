@@ -32,7 +32,7 @@ jobs:
       run: yarn
 
     - name: Instalando Playwright
-      run: yarn install playwright
+      run: yarn playwright install
 
     - name: Testes E2E (end-to-end)
       run: yarn run e2e
