@@ -4,11 +4,9 @@
 name: 'Execução Agendada'
 
 # triggers ou gatilhos de execução
-# gatilho de exec manual = workflow_dispatch
-
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '* * * * *'
 
 jobs: 
   # descrição do job
