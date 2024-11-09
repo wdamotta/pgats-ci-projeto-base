@@ -8,11 +8,9 @@ name: 'Execução por deploy'
 
 on:
   workflow_run:
-    workflows: ['Execução Manua']
+    workflows: ['Execução Manual']
     types:
       - completed
-
-
 jobs: 
   #descrição do job
   e2e-tests:
@@ -44,4 +42,3 @@ jobs:
       with:
         name: relatorio-de-testes
         path: ./playwright-report
-
