@@ -4,14 +4,14 @@
 name: 'Execução por deploy'
 
 # triggers ou gatilhos de execução
-  #gatilho de exec apos outro workflow = workflow_run
+#gatilho de exec apos outro workflow = workflow_run
 
 on:
   workflow_run:
     workflows: ['Execução Manual']
     types:
       - completed
-jobs: 
+jobs:
   #descrição do job
   e2e-tests:
     #a maquina que o job vai executar
@@ -19,26 +19,25 @@ jobs:
 
     #passo a passo das ações do job
     steps:
+      - uses: actions/checkout@v4
 
-    - uses: actions/checkout@v4
+      # - uses: actions/setup-node@v4
+      #   with:
+      #     node-version: lts/*
 
-    # - uses: actions/setup-node@v4
-    #   with:
-    #     node-version: lts/*
+      - name: Instalando yarn
+        run: npm install -g yarn
 
-    - name: Instalando yarn
-      run: npm install -g yarn
+      - name: Instalando depedencias
+        run: yarn
 
-    - name: Instalando depedencias
-      run: yarn
+      - name: Instalando Playwright
+        run: yarn playwright install
 
-    - name: Instalando Playwright
-      run: yarn playwright install
+      - name: Testes E2E (end-to-end)
+        run: yarn run e2e
 
-    - name: Testes E2E (end-to-end)
-      run: yarn run e2e
-
-    - uses: actions/upload-artifact@v4
-      with:
-        name: relatorio-de-testes
-        path: ./playwright-report
+      - uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-de-testes
+          path: ./playwright-report
