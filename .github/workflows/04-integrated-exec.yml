@@ -52,7 +52,7 @@ jobs:
         run: yarn playwright install
 
       - name: subindo a aplicação
-        run: yarn start & 
+        run: yarn start &
 
       - name: Testes E2E (end-to-end)
         run: yarn run e2e
